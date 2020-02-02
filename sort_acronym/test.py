@@ -20,6 +20,10 @@ class TestAcronym(unittest.TestCase):
     expected = "USA"
     actual = acronym_sort.acronym("United  States   of   Americas  ")
     self.assertEqual(expected, actual)
+  def test_uppercase_middle_text(self):
+    expected = "USA"
+    actual = acronym_sort.acronym("United StaTe of AmeRiCa")
+    self.assertEqual(expected, actual)
   
 class TestAcronymSort(unittest.TestCase):
   def test_abbrev_sort(self):
