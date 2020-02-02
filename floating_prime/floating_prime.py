@@ -22,6 +22,5 @@ def floating_prime(number):
   return False
 
 
-
 if __name__ == '__main__':
   print(floating_prime(float(input("Enter Value: "))))
