@@ -1,4 +1,4 @@
-def hangman(question, guess, board=None):
+def hangman(question, guess, board=None, test=False):
   if not board: 
     board = {
       "score": 0,
@@ -33,6 +33,8 @@ def hangman(question, guess, board=None):
   if board['num'] == 0:
     print(board["score"])
     return board
+
+  
 
   # call recursive
   return hangman(question, int(input("Enter value: ")), board)

@@ -26,27 +26,23 @@ class TestHangman(unittest.TestCase):
       stacks = digit_hangman.user_input(True)
     self.assertEqual(capturedOutput.getvalue(), expected)
 
-#   def test_hangman(self):
-#     # capture print
-#     capturedOutput = io.StringIO()  
-#     sys.stdout = capturedOutput   
-    
-#     expected = "[
-#       ""_ _ _ _ _ _ _ _ _ _ _ _",
-#       "2 2 2 2 2 _ _ _ _ _ _ _"
-#       "2 2 2 2 2 3 3 3 3 3 3 3"
-#       "2 2 2 2 2 3 3 3 3 3 3 3 4"
-#       "2 2 2 2 2 3 3 3 3 3 3 3 4 5"
-#       "2 2 2 2 2 3 3 3 3 3 3 3 4 5 6"
-#       "12""
-#     ]"
-#     with patch("builtins.input", side_effect=["2 2 2 2 2 3 3 3 3 3 3 3", "2", "3", "4", "5", "6"]):
-#       stacks = digit_hangman.user_input(False)
-#     self.assertEqual(capturedOutput.getvalue(), expected)
+  def test_show_secret1(self):
+    question = "9 9 4 2 2 4 7 7 9 6 6 4"
+    question = [int(x) for x in question.split(" ")] 
+    guess = 9
+    expected = question
+    with patch("builtins.input", side_effect=["6", "7", "2", "4"]):
+      stacks = digit_hangman.hangman(question, guess)['secret']
+    self.assertEqual(expected, stacks)
 
+  def test_show_secret1(self):
+    question = "2 2 2 2 2 3 3 3 3 3 3 3"
+    question = [int(x) for x in question.split(" ")] 
+    guess = 2
+    expected = question
+    with patch("builtins.input", side_effect=["3", "4", "5", "6"]):
+      stacks = digit_hangman.hangman(question, guess)['secret']
+    self.assertEqual(expected, stacks)
 
-
-
-#     # actual = digit_hangman.user_input("2 2 2 2 2 3 3 3 3 3 3")
-# if __name__ == '__main__':
-#     unittest.main()
+if __name__ == '__main__':
+    unittest.main()
